@@ -1,0 +1,336 @@
+.agenda {
+  width: 100%;
+  max-width: 400px;
+  margin: 0;
+  margin-top: 12px;
+  box-sizing: border-box;
+  border-radius: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  background: #fff;
+  border: 1px solid #e4e4e7;
+  overflow: hidden;
+}
+
+.agenda-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 10px;
+  padding-right: 10px;
+  border-bottom: 1px solid #e4e4e7;
+
+}
+
+.agenda-title h4 {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 600;
+  color: #111;
+  margin: 5px 8px;
+
+}
+
+.add-button {
+    width: 16px;
+    height: 16px;
+    border-radius: 25%;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+    background: #7c3aed;
+    color: #e9d5ff;
+    cursor: pointer;
+    align-items: center;
+    text-align: center;
+  }
+  .add-button:hover {
+    background: #7c3aed;
+    transform: scale(1.05);
+  }
+  
+
+.agenda-content {
+  display: grid;
+  font-size: 12px;
+  color: #c6c6c7;
+  place-items: center;
+  text-align: center;
+  overflow: auto;
+}
+
+.agenda-content:has(.agenda-event-list) {
+  place-items: stretch;
+  text-align: left;
+}
+
+.agenda-empty {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Formulario nuevo evento */
+.agenda-form {
+  padding: 12px 16px;
+  border-bottom: 1px solid #e4e4e7;
+  background: #fafafa;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.agenda-form-input,
+.agenda-form-textarea {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #e4e4e7;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.agenda-form-input:focus,
+.agenda-form-textarea:focus {
+  outline: none;
+  border-color: #7c3aed;
+  box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.15);
+}
+
+.agenda-form-textarea {
+  resize: vertical;
+  min-height: 56px;
+}
+
+.agenda-form-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-top: 4px;
+}
+
+.agenda-form-btn {
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+}
+
+.agenda-form-btn.cancel {
+  background: #f4f4f5;
+  color: #52525b;
+}
+
+.agenda-form-btn.cancel:hover {
+  background: #e4e4e7;
+}
+
+.agenda-form-btn.submit {
+  background: #7c3aed;
+  color: #fff;
+}
+
+.agenda-form-btn.submit:hover {
+  background: #6d28d9;
+}
+
+/* Lista de eventos */
+.agenda-event-list {
+  list-style: none;
+  margin: 0;
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.agenda-event-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 10px 12px;
+  background: #fafafa;
+  border: 1px solid #e4e4e7;
+  border-radius: 10px;
+  position: relative;
+  padding-right: 36px;
+}
+
+.agenda-event-main {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+
+.agenda-event-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111;
+}
+
+.agenda-event-time {
+  font-size: 12px;
+  color: #71717a;
+}
+
+.agenda-event-desc {
+  margin: 0;
+  font-size: 12px;
+  color: #52525b;
+  line-height: 1.4;
+  width: 100%;
+}
+
+.agenda-event-delete {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: #f4f4f5;
+  color: #71717a;
+  border-radius: 6px;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.agenda-event-delete:hover {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+/* Responsive: tablet y móvil */
+@media (max-width: 768px) {
+  .agenda {
+    max-width: 100%;
+    margin-top: 10px;
+    border-radius: 14px;
+  }
+
+  .agenda-title {
+    font-size: 10px;
+    padding-right: 8px;
+  }
+
+  .agenda-title h4 {
+    font-size: 12px;
+    margin: 5px 6px;
+  }
+
+  .agenda-form {
+    padding: 10px 14px;
+    gap: 6px;
+  }
+
+  .agenda-form-input,
+  .agenda-form-textarea {
+    padding: 10px 12px;
+    font-size: 16px;
+  }
+
+  .agenda-event-list {
+    padding: 10px 14px;
+    gap: 8px;
+  }
+
+  .agenda-event-item {
+    padding: 10px 12px;
+    padding-right: 36px;
+  }
+
+  .agenda-event-title {
+    font-size: 13px;
+  }
+
+  .agenda-event-time,
+  .agenda-event-desc {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .agenda {
+    margin-top: 8px;
+    border-radius: 12px;
+  }
+
+  .agenda-title h4 {
+    font-size: 11px;
+    margin: 4px 6px;
+  }
+
+  .agenda-form {
+    padding: 8px 12px;
+    gap: 6px;
+  }
+
+  .agenda-form-input,
+  .agenda-form-textarea {
+    padding: 10px 12px;
+    font-size: 16px;
+    min-height: 48px;
+  }
+
+  .agenda-form-btn {
+    padding: 10px 14px;
+    min-height: 44px;
+  }
+
+  .agenda-event-list {
+    padding: 8px 12px;
+    gap: 8px;
+  }
+
+  .agenda-event-item {
+    padding: 8px 10px;
+    padding-right: 32px;
+  }
+
+  .agenda-event-delete {
+    width: 28px;
+    height: 28px;
+    top: 6px;
+    right: 6px;
+  }
+
+  .agenda-event-title {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 360px) {
+  .agenda {
+    border-radius: 10px;
+  }
+
+  .agenda-title h4 {
+    font-size: 11px;
+    margin: 4px 4px;
+  }
+
+  .agenda-form {
+    padding: 8px 10px;
+  }
+
+  .agenda-event-list {
+    padding: 6px 10px;
+  }
+
+  .agenda-event-item {
+    padding: 8px 10px;
+    padding-right: 32px;
+  }
+}

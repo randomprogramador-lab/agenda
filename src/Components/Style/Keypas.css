@@ -1,0 +1,741 @@
+.keypas {
+	width: 100%;
+	max-width: 360px;
+	margin: 0 auto;
+	padding: 24px 16px;
+	padding-bottom: 28px;
+	background: #fff;
+	border-radius: 16px;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+	border: 1px solid #e4e4e7;
+	box-sizing: border-box;
+	overflow: visible;
+}
+
+/* Evitar que el grid del keypad se desborde en viewports muy estrechos */
+.keypas:not(.keypas-main) .keypas-grid {
+	min-width: 0;
+}
+
+.keypas-title {
+	font-size: 20px;
+	font-weight: 600;
+	color: #27272a;
+	text-align: center;
+	margin: 0 0 8px;
+}
+
+.keypas-display {
+	text-align: center;
+	font-size: 26px;
+	letter-spacing: 0.35em;
+	color: #52525b;
+	min-height: 48px;
+	margin-bottom: 20px;
+	padding: 14px 16px;
+	background: #f4f4f5;
+	border-radius: 12px;
+	border: 1px solid #e4e4e7;
+	font-variant-numeric: tabular-nums;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.keypas-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 12px;
+}
+
+.keypas-cell {
+	/* celda vacía para centrar el 0 */
+}
+
+.keypas-btn {
+	aspect-ratio: 1;
+	min-height: 48px;
+	min-width: 0;
+	border: 1px solid #e4e4e7;
+	background: #fff;
+	border-radius: 12px;
+	font-size: 22px;
+	font-weight: 500;
+	color: #27272a;
+	cursor: pointer;
+	transition: background 0.2s, transform 0.1s;
+	font-family: inherit;
+	-webkit-tap-highlight-color: transparent;
+}
+
+.keypas-btn:hover {
+	background: #f4f4f5;
+}
+
+.keypas-btn:active {
+	transform: scale(0.97);
+}
+
+.keypas-btn-back {
+	font-size: 20px;
+	background: #f4f4f5;
+	color: #71717a;
+}
+
+.keypas-btn-back:hover {
+	background: #e4e4e7;
+	color: #52525b;
+}
+
+.keypas-subtitle {
+	text-align: center;
+	font-size: 14px;
+	color: #71717a;
+	margin: 0 0 8px;
+}
+
+.keypas-step {
+	text-align: center;
+	font-size: 13px;
+	color: #52525b;
+	margin: 0 0 16px;
+}
+
+.keypas-error {
+	text-align: center;
+	font-size: 13px;
+	margin: 0 0 12px;
+	min-height: 20px;
+}
+
+.keypas-error:not(.keypas-success) {
+	color: #dc2626;
+}
+
+.keypas-error.keypas-success {
+	color: #059669;
+}
+
+.keypas-submit {
+	width: 100%;
+	margin-top: 24px;
+	padding: 14px 20px;
+	border: none;
+	border-radius: 12px;
+	background: #7c3aed;
+	color: #fff;
+	font-size: 16px;
+	font-weight: 600;
+	cursor: pointer;
+	font-family: inherit;
+	min-height: 48px;
+	transition: background 0.2s;
+}
+
+.keypas-submit:hover:not(:disabled) {
+	background: #6d28d9;
+}
+
+.keypas-submit:active:not(:disabled) {
+	transform: scale(0.98);
+}
+
+.keypas-submit:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+/* Pantalla principal desbloqueada */
+.keypas-main {
+	max-width: 100%;
+	background: transparent;
+	box-shadow: none;
+	border: none;
+	padding: 16px 0;
+}
+
+.keypas-main .keypas-generator,
+.keypas-main .keypas-list-section {
+	background: #fff;
+	border-radius: 16px;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+	border: 1px solid #e4e4e7;
+	padding: 20px;
+	margin-bottom: 16px;
+	box-sizing: border-box;
+}
+
+.keypas-main .keypas-list-section {
+	margin-bottom: 0;
+}
+
+.keypas-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 20px;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+
+.keypas-header-actions {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	flex-wrap: wrap;
+}
+
+.keypas-btn-change-pin {
+	padding: 8px 14px;
+	border: 1px solid #e4e4e7;
+	border-radius: 8px;
+	background: #f4f4f5;
+	color: #52525b;
+	font-size: 13px;
+	cursor: pointer;
+	font-family: inherit;
+}
+
+.keypas-btn-change-pin:hover {
+	background: #e4e4e7;
+	color: #27272a;
+}
+
+.keypas-logout {
+	padding: 8px 16px;
+	border: 1px solid #e4e4e7;
+	border-radius: 8px;
+	background: #fff;
+	color: #71717a;
+	font-size: 13px;
+	cursor: pointer;
+	font-family: inherit;
+}
+
+.keypas-logout:hover {
+	background: #f4f4f5;
+	color: #52525b;
+}
+
+.keypas-section-title {
+	font-size: 15px;
+	font-weight: 600;
+	color: #27272a;
+	margin: 0 0 12px;
+}
+
+.keypas-generator {
+	margin-bottom: 24px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #e4e4e7;
+}
+
+.keypas-gen-row {
+	margin-bottom: 10px;
+}
+
+.keypas-label {
+	display: block;
+	font-size: 12px;
+	color: #71717a;
+	margin-bottom: 4px;
+}
+
+.keypas-select,
+.keypas-input {
+	width: 100%;
+	padding: 10px 12px;
+	border: 1px solid #e4e4e7;
+	border-radius: 8px;
+	font-size: 14px;
+	font-family: inherit;
+	box-sizing: border-box;
+}
+
+.keypas-select:focus,
+.keypas-input:focus {
+	outline: none;
+	border-color: #7c3aed;
+	box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.2);
+}
+
+.keypas-btn:focus-visible,
+.keypas-submit:focus-visible,
+.keypas-logout:focus-visible,
+.keypas-item-btn:focus-visible,
+.keypas-btn-small:focus-visible,
+.keypas-btn-gen:focus-visible,
+.keypas-btn-save:focus-visible {
+	outline: 2px solid #7c3aed;
+	outline-offset: 2px;
+}
+
+.keypas-gen-actions {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 10px;
+	margin-top: 14px;
+}
+
+.keypas-btn-gen,
+.keypas-btn-save {
+	padding: 10px 18px;
+	border: none;
+	border-radius: 8px;
+	font-size: 14px;
+	font-weight: 500;
+	cursor: pointer;
+	font-family: inherit;
+}
+
+.keypas-btn-gen {
+	background: #f4f4f5;
+	color: #27272a;
+}
+
+.keypas-btn-gen:hover {
+	background: #e4e4e7;
+}
+
+.keypas-btn-save {
+	background: #7c3aed;
+	color: #fff;
+}
+
+.keypas-btn-save:hover:not(:disabled) {
+	background: #6d28d9;
+}
+
+.keypas-btn-save:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+.keypas-generated-display {
+	font-size: 14px;
+	font-family: monospace;
+	color: #52525b;
+	letter-spacing: 0.05em;
+	word-break: break-all;
+}
+
+.keypas-list-section {
+	margin-top: 8px;
+}
+
+.keypas-empty {
+	font-size: 13px;
+	color: #71717a;
+	text-align: center;
+	margin: 0;
+	padding: 16px;
+}
+
+.keypas-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.keypas-list-item {
+	padding: 12px 14px;
+	background: #fafafa;
+	border: 1px solid #e4e4e7;
+	border-radius: 12px;
+}
+
+.keypas-item-main {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	margin-bottom: 10px;
+}
+
+.keypas-item-name {
+	font-size: 14px;
+	font-weight: 600;
+	color: #27272a;
+}
+
+.keypas-item-user {
+	font-size: 13px;
+	color: #71717a;
+}
+
+.keypas-item-pwd {
+	font-size: 13px;
+	font-family: monospace;
+	color: #52525b;
+	letter-spacing: 0.05em;
+	word-break: break-all;
+}
+
+.keypas-item-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+}
+
+.keypas-item-btn {
+	padding: 8px 14px;
+	min-height: 36px;
+	border: 1px solid #e4e4e7;
+	border-radius: 8px;
+	background: #fff;
+	color: #52525b;
+	font-size: 13px;
+	cursor: pointer;
+	font-family: inherit;
+	transition: background 0.2s, color 0.2s;
+}
+
+.keypas-item-btn:hover {
+	background: #f4f4f5;
+}
+
+.keypas-item-btn.danger:hover {
+	background: #fee2e2;
+	color: #dc2626;
+	border-color: #fecaca;
+}
+
+.keypas-edit-form {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.keypas-edit-pwd-row {
+	display: flex;
+	gap: 8px;
+	align-items: center;
+}
+
+.keypas-edit-pwd-row .keypas-input-pwd {
+	flex: 1;
+	min-width: 0;
+}
+
+.keypas-edit-pwd-row .keypas-btn-small {
+	flex-shrink: 0;
+}
+
+.keypas-edit-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+}
+
+.keypas-btn-small {
+	padding: 8px 14px;
+	min-height: 36px;
+	border: 1px solid #e4e4e7;
+	border-radius: 8px;
+	background: #fff;
+	color: #52525b;
+	font-size: 13px;
+	cursor: pointer;
+	font-family: inherit;
+	transition: background 0.2s;
+}
+
+.keypas-btn-small:hover {
+	background: #f4f4f5;
+}
+
+.keypas-btn-small.primary {
+	background: #7c3aed;
+	color: #fff;
+	border-color: #7c3aed;
+}
+
+.keypas-btn-small.primary:hover {
+	background: #6d28d9;
+}
+
+/* ========== Responsive: tablet (≤768px) ========== */
+@media (max-width: 768px) {
+	.keypas {
+		max-width: 100%;
+		padding: 20px 14px;
+		border-radius: 14px;
+	}
+
+	.keypas-title {
+		font-size: 19px;
+	}
+
+	.keypas-display {
+		font-size: 24px;
+		letter-spacing: 0.3em;
+		min-height: 44px;
+		padding: 12px 14px;
+	}
+
+	.keypas-btn {
+		min-height: 44px;
+		font-size: 20px;
+		border-radius: 10px;
+	}
+
+	.keypas-btn-back {
+		font-size: 18px;
+	}
+
+	.keypas-submit {
+		min-height: 44px;
+		padding: 12px 18px;
+		font-size: 15px;
+	}
+
+	.keypas-main .keypas-generator,
+	.keypas-main .keypas-list-section {
+		padding: 18px;
+		border-radius: 14px;
+	}
+
+	.keypas-section-title {
+		font-size: 14px;
+	}
+
+	.keypas-item-btn,
+	.keypas-btn-small {
+		min-height: 40px;
+		padding: 8px 12px;
+		font-size: 12px;
+	}
+}
+
+/* ========== Responsive: móvil (≤480px) ========== */
+@media (max-width: 480px) {
+	.keypas:not(.keypas-main) {
+		padding: 16px 12px;
+		padding-bottom: 24px;
+		border-radius: 12px;
+		margin-left: 6px;
+		margin-right: 6px;
+		max-width: calc(100% - 12px);
+	}
+
+	.keypas.keypas-main {
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+	.keypas-title {
+		font-size: 18px;
+		margin-bottom: 6px;
+	}
+
+	.keypas-subtitle {
+		font-size: 13px;
+	}
+
+	.keypas-step {
+		font-size: 12px;
+		margin-bottom: 12px;
+	}
+
+	.keypas-display {
+		font-size: 22px;
+		letter-spacing: 0.25em;
+		min-height: 44px;
+		margin-bottom: 16px;
+		padding: 12px 10px;
+	}
+
+	.keypas-grid {
+		gap: 10px;
+	}
+
+	.keypas-btn {
+		min-height: 48px;
+		min-width: 0;
+		font-size: 20px;
+		border-radius: 10px;
+	}
+
+	.keypas-btn-back {
+		font-size: 18px;
+	}
+
+	.keypas-error {
+		font-size: 12px;
+		margin-bottom: 10px;
+	}
+
+	.keypas-submit {
+		margin-top: 20px;
+		min-height: 48px;
+		padding: 14px 16px;
+		font-size: 15px;
+		border-radius: 10px;
+		width: 100%;
+		box-sizing: border-box;
+	}
+
+	.keypas-main {
+		padding: 12px 0;
+	}
+
+	.keypas-main .keypas-header {
+		margin-bottom: 16px;
+		padding: 0 4px;
+	}
+
+	.keypas-logout {
+		padding: 10px 14px;
+		font-size: 13px;
+		min-height: 40px;
+	}
+
+	.keypas-main .keypas-generator,
+	.keypas-main .keypas-list-section {
+		padding: 16px;
+		border-radius: 12px;
+		margin-left: 4px;
+		margin-right: 4px;
+	}
+
+	.keypas-section-title {
+		font-size: 14px;
+		margin-bottom: 10px;
+	}
+
+	.keypas-select,
+	.keypas-input {
+		padding: 12px 14px;
+		font-size: 16px;
+		min-height: 48px;
+		border-radius: 10px;
+	}
+
+	.keypas-gen-actions {
+		gap: 8px;
+		margin-top: 12px;
+	}
+
+	.keypas-btn-gen,
+	.keypas-btn-save {
+		padding: 12px 16px;
+		font-size: 14px;
+		min-height: 44px;
+		border-radius: 10px;
+	}
+
+	.keypas-generated-display {
+		font-size: 13px;
+		width: 100%;
+	}
+
+	.keypas-list-item {
+		padding: 14px 12px;
+		border-radius: 10px;
+	}
+
+	.keypas-item-name {
+		font-size: 14px;
+	}
+
+	.keypas-item-pwd {
+		font-size: 12px;
+	}
+
+	.keypas-item-actions {
+		gap: 8px;
+	}
+
+	.keypas-item-btn {
+		min-height: 40px;
+		padding: 10px 12px;
+		font-size: 12px;
+		border-radius: 8px;
+	}
+
+	.keypas-edit-form .keypas-input {
+		min-height: 44px;
+	}
+
+	.keypas-edit-actions {
+		gap: 8px;
+	}
+
+	.keypas-btn-small {
+		min-height: 40px;
+		padding: 10px 12px;
+		font-size: 12px;
+		border-radius: 8px;
+	}
+
+	.keypas-empty {
+		font-size: 12px;
+		padding: 14px;
+	}
+}
+
+/* ========== Responsive: móvil pequeño (≤360px) ========== */
+@media (max-width: 360px) {
+	.keypas:not(.keypas-main) {
+		padding: 12px 10px;
+		padding-bottom: 20px;
+		border-radius: 10px;
+		margin-left: 4px;
+		margin-right: 4px;
+		max-width: calc(100% - 8px);
+	}
+
+	.keypas.keypas-main {
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+	.keypas-title {
+		font-size: 17px;
+	}
+
+	.keypas-display {
+		font-size: 20px;
+		letter-spacing: 0.2em;
+		min-height: 40px;
+		padding: 10px 8px;
+	}
+
+	.keypas-grid {
+		gap: 8px;
+	}
+
+	.keypas-btn {
+		min-height: 44px;
+		font-size: 18px;
+		border-radius: 8px;
+	}
+
+	.keypas-submit {
+		min-height: 44px;
+		padding: 12px 14px;
+		font-size: 14px;
+	}
+
+	.keypas-main .keypas-generator,
+	.keypas-main .keypas-list-section {
+		padding: 14px;
+		border-radius: 10px;
+		margin-left: 2px;
+		margin-right: 2px;
+	}
+
+	.keypas-section-title {
+		font-size: 13px;
+	}
+
+	.keypas-item-btn,
+	.keypas-btn-small {
+		min-height: 38px;
+		padding: 8px 10px;
+		font-size: 11px;
+	}
+}
