@@ -73,6 +73,12 @@ export function safeAuthErrorMessage(error) {
 	if (msg.includes('invalid login') || msg.includes('invalid_credentials')) return 'Correo o contraseña incorrectos.'
 	if (msg.includes('email not confirmed')) return 'Confirma tu correo antes de entrar.'
 	if (msg.includes('too many requests')) return 'Demasiados intentos. Espera un momento.'
+	if (msg.includes('failed to fetch') || msg.includes('networkerror') || msg.includes('load failed')) {
+		return 'No hay conexión con el servidor. Revisa la URL de Supabase y tu red.'
+	}
+	if (msg.includes('invalid api key') || msg.includes('jwt')) {
+		return 'Clave de Supabase incorrecta. Revisa VITE_SUPABASE_ANON_KEY en .env.'
+	}
 	return 'Error al iniciar sesión. Intenta de nuevo.'
 }
 
